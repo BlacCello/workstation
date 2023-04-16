@@ -1,0 +1,18 @@
+---
+- name: Archlinux setup
+  hosts: all
+  vars_files:
+    - vars/default.yml
+    - vars/arch.yml
+  tasks:
+    - name: Install pacman packages
+      become: yes
+      community.general.pacman:
+        name: "{{ generic_packages }} + {{ distribution_packages }}"
+        state: present
+- name: Archlinux setup
+  hosts: all
+  become: yes
+  roles:
+    - andrewrothstein.k3d
+- ansible.builtin.import_playbook: generic.yml

@@ -1,0 +1,32 @@
+---
+username: marcel
+generic_packages:
+  - bat
+  - curl
+  - ffmpeg
+  - fzf
+  - git
+  - jq
+  - keepassxc
+  - neovim
+  - ripgrep
+  - thunderbird
+  - unzip
+  - wget
+  - yamllint
+  - zip
+  # --- sway ---
+  - blueman
+  - brightnessctl
+  - foot
+  - grim
+  - imagemagick
+  - kanshi
+  - pavucontrol
+  - slurp
+  - sway
+  - swaybg
+  - swayidle 
+  - swaylock
+  - wl-clipboard
+  - xdg-desktop-portal-wlr

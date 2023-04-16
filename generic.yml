@@ -1,0 +1,31 @@
+---
+- name: Workstation setup (distribution independent)
+  hosts: all
+  vars_files:
+    - vars/default.yml
+  tasks:
+    - name: "adding existing user '{{ username }}' to group docker"
+      become: yes
+      user:
+        name: "{{ username }}"
+        groups: docker
+        shell: /usr/bin/fish
+        append: yes
+    - name: Clone fish config repository
+      git:
+        repo: git@github.com:BlacCello/fish.git
+        dest: "/home/{{ username }}/git/fish"
+        clone: yes
+        update: yes
+    - name: Call setup script for fish
+      ansible.builtin.shell: "/home/{{ username }}/git/fish/create-symlinks.sh >> /home/{{ username }}/ansible.log"
+    - name: Clone sway config repository
+      git:
+        repo: git@github.com:BlacCello/sway-dotfiles.git
+        dest: "/home/{{ username }}/git/sway-dotfiles"
+        clone: yes
+        update: yes
+          #- name: Call setup script for sway
+          #ansible.builtin.shell: "/home/{{ username }}/git/sway-dotfiles/create-symlinks.sh >> /home/{{ username }}/ansible.log"
+  roles:
+    - binenv

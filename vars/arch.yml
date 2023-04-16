@@ -1,0 +1,14 @@
+---
+distribution_packages:
+  - code
+  - docker
+  - fd
+  - fish
+  - helm
+  - k9s
+  - kubectl
+  - nextcloud-client
+  - python
+  - python-pip
+  # --- sway ---
+  - mako

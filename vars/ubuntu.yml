@@ -1,0 +1,11 @@
+---
+distribution_packages:
+  - fd-find
+  - foot-themes
+  - nextcloud-desktop
+  - python3
+  - python3-pip
+  - sway-backgrounds
+  # --- sway ---
+  - mako-notifier
+

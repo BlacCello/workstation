@@ -1,0 +1,31 @@
+---
+- name: Install pip requirements
+  ansible.builtin.pip:
+    name:
+      - github3.py
+
+- name: "Get Latest Release from Github"
+  community.general.github_release:
+    user: devops-works
+    repo: binenv
+    action: latest_release
+    # token: "{{ github_token }}"
+  register: release
+
+- name: Print Latest release
+  ansible.builtin.debug:
+    var: release
+
+- name: Download
+  ansible.builtin.get_url:
+    url: https://github.com/devops-works/binenv/releases/download/{{release.tag}}/binenv_linux_amd64
+    dest: /tmp/binenv
+    mode: a+x
+
+- name: Install binenv with binenv
+  ansible.builtin.shell: "/tmp/binenv update && /tmp/binenv install binenv"
+
+- name: Delete downloaded binenv
+  ansible.builtin.file:
+    path: /tmp/binenv
+    state: absent
