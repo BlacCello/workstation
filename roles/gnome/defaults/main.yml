@@ -1,0 +1,6 @@
+---
+gnome_extensions:
+  - id: 5278
+    enable: yes
+gnome_user: "{{username}}"
+gtk_version: 4.0

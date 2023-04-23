@@ -1,0 +1,4 @@
+---
+- name: Install plugin {{ plugin | quote }} with fisher
+  when: lookup('file', '/home/' + username + '/.config/fish/fish_plugins').splitlines() | select('match', plugin) | list | length == 0
+  shell: fish -c 'fisher install {{plugin | quote}}'

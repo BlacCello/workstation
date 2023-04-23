@@ -29,3 +29,6 @@
           #ansible.builtin.shell: "/home/{{ username }}/git/sway-dotfiles/create-symlinks.sh >> /home/{{ username }}/ansible.log"
   roles:
     - binenv
+    - fish
+    - fonts
+    - gnome

@@ -1,0 +1,11 @@
+---
+- name: Download ttf files
+  loop: "{{font_ttf_files}}"
+  include_tasks: ttf.yml
+  loop_control:
+    loop_var: ttf
+  register: font_download
+
+- name: update font-cache
+  command: fc-cache -fv
+  when: font_download.changed

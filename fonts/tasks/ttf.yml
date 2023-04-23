@@ -1,0 +1,10 @@
+---
+- name: Create font directory if it does not exist
+  ansible.builtin.file:
+    path: /home/{{username}}/.fonts/
+    state: directory
+
+- name: Install font ttf {{ ttf | quote }}
+  ansible.builtin.get_url:
+    url: "{{ttf}}"
+    dest: /home/{{username}}/.fonts/

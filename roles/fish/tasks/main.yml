@@ -1,0 +1,19 @@
+---
+- name: Install fish completions
+  loop: "{{fish_completions}}"
+  include_tasks: completion.yml
+  loop_control:
+    loop_var: completion
+- name: Download fisher
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish
+    dest: /tmp/fisher.fish
+- name: Install fisher
+  args:
+    creates: "/home/{{username}}/.config/fish/functions/fisher.fish"
+  ansible.builtin.shell: fish -c 'source /tmp/fisher.fish && fisher install jorgebucaran/fisher'
+- name: Install plugins
+  loop: "{{fisher_plugins}}"
+  include_tasks: plugin.yml
+  loop_control:
+    loop_var: plugin

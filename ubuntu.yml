@@ -16,14 +16,21 @@
         src: "/usr/bin/batcat"
         dest: "/usr/local/bin/bat"
         state: link
+    - name: Create symbolic link for fd
+      become: yes
+      file:
+        src: "/usr/bin/fdfind"
+        dest: "/usr/local/bin/fd"
+        state: link
 - name: Ubuntu 22.04 setup
   hosts: all
   become: yes
   roles:
     - andrewrothstein.k3d
+    - andrewrothstein.kind
     - andrewrothstein.kubectl
-    - samdoran.fish
+    - gantsign.visual-studio-code
     - geerlingguy.docker
     - geerlingguy.helm
-    - gantsign.visual-studio-code
+    - samdoran.fish
 - ansible.builtin.import_playbook: generic.yml

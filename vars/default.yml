@@ -1,11 +1,12 @@
 ---
-username: marcel
+username: "{{ lookup('env', 'USER') }}"
 generic_packages:
   - bat
   - curl
   - ffmpeg
   - fzf
   - git
+  - htop
   - jq
   - keepassxc
   - neovim
@@ -26,7 +27,24 @@ generic_packages:
   - slurp
   - sway
   - swaybg
-  - swayidle 
+  - swayidle
   - swaylock
   - wl-clipboard
   - xdg-desktop-portal-wlr
+fisher_plugins:
+  - ilancosman/tide@v5
+  - jorgebucaran/nvm.fish
+fish_completions:
+  - "https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/kubectx.fish"
+  - "https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/kubens.fish"
+binenv_install:
+  - name: flux
+    version: v2.0.0-rc.1
+  - name: hadolint
+  - name: kubectx
+  - name: kubens
+font_ttf_files:
+  - "https://github.com/IlanCosman/tide/blob/assets/fonts/mesloLGS_NF_regular.ttf?raw=true"
+  - "https://github.com/IlanCosman/tide/blob/assets/fonts/mesloLGS_NF_bold.ttf?raw=true"
+  - "https://github.com/IlanCosman/tide/blob/assets/fonts/mesloLGS_NF_italic.ttf?raw=true"
+  - "https://github.com/IlanCosman/tide/blob/assets/fonts/mesloLGS_NF_bold_italic.ttf?raw=true"

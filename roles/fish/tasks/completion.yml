@@ -1,0 +1,5 @@
+---
+- name: Install completion {{ completion | quote }}
+  ansible.builtin.get_url:
+    url: "{{completion}}"
+    dest: /home/{{username}}/.config/fish/completions/

@@ -1,0 +1,8 @@
+---
+- name: Check if binary {{ binary.name | quote }} exists
+  stat:
+    path: /home/{{username}}/.binenv/{{ binary.name | quote }}
+  register: stat_result
+- name: Install binary {{ binary.name | quote }} with binenv
+  when: not stat_result.stat.exists
+  shell: binenv install {{ binary.name | quote }} {{ (binary.version is defined) | ternary(binary.version | default() | quote, "") }}

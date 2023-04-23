@@ -1,8 +1,10 @@
 ---
 roles:
   - name: andrewrothstein.k3d
+  - name: andrewrothstein.kind
   - name: andrewrothstein.kubectl
-  - name: samdoran.fish
+  - name: gantsign.visual-studio-code
   - name: geerlingguy.docker
   - name: geerlingguy.helm
-  - name: gantsign.visual-studio-code
+  - name: petermosmans.customize-gnome
+  - name: samdoran.fish
