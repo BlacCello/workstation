@@ -5,6 +5,7 @@ distribution_packages:
   - fd
   - fish
   - helm
+  - java17-openjdk
   - k9s
   - kubectl
   - nextcloud-client

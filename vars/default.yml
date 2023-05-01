@@ -34,6 +34,7 @@ generic_packages:
 fisher_plugins:
   - ilancosman/tide@v5
   - jorgebucaran/nvm.fish
+  - reitzig/sdkman-for-fish
 fish_completions:
   - "https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/kubectx.fish"
   - "https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/kubens.fish"
@@ -43,6 +44,7 @@ binenv_install:
   - name: hadolint
   - name: kubectx
   - name: kubens
+  - name: stern
 font_ttf_files:
   - "https://github.com/IlanCosman/tide/blob/assets/fonts/mesloLGS_NF_regular.ttf?raw=true"
   - "https://github.com/IlanCosman/tide/blob/assets/fonts/mesloLGS_NF_bold.ttf?raw=true"

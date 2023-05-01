@@ -6,5 +6,6 @@ distribution_packages:
   - python3
   - python3-pip
   - sway-backgrounds
+  - openjdk-17-jdk
   # --- sway ---
   - mako-notifier
