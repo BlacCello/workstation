@@ -5,4 +5,4 @@
   register: stat_result
 - name: Install binary {{ binary.name | quote }} with binenv
   when: not stat_result.stat.exists
-  shell: binenv install {{ binary.name | quote }} {{ (binary.version is defined) | ternary(binary.version | default() | quote, "") }}
+  shell: /home/{{username}}/.binenv/binenv install {{ binary.name | quote }} {{ (binary.version is defined) | ternary(binary.version | default() | quote, "") }}

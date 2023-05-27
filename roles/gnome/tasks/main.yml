@@ -1,20 +1,33 @@
 ---
-- name: Install apt packages
-  become: yes
-  apt:
-    name:
-      - gir1.2-gda-5.0
-      - gir1.2-gsound-1.0
-      - gnome-shell-extension-manager
-    state: present
-  when: ansible_pkg_mgr == "apt"
-- name: Install pacman packages
-  become: yes
-  community.general.pacman:
-    name:
-      - libgda6
-      - gnome-shell-extension-manager
-    state: present
-  when: ansible_pkg_mgr == "pacman"
-- ansible.builtin.include_role:
-    name: petermosmans.customize-gnome
+- name: Get Desktop
+  changed_when: false
+  shell:
+    cmd: "echo $XDG_CURRENT_DESKTOP"
+  register: current_desktop
+
+- name: Debug
+  debug:
+    msg: "Desktop is {{ current_desktop.stdout }}"
+
+- block: 
+    - name: Install apt packages
+      become: yes
+      apt:
+        name:
+          - gir1.2-gda-5.0
+          - gir1.2-gsound-1.0
+          - gnome-shell-extension-manager
+        state: present
+      when: ansible_pkg_mgr == "apt"
+    - name: Install pacman packages
+      become: yes
+      community.general.pacman:
+        name:
+          - libgda6
+          - gnome-shell-extension-manager
+        state: present
+      when: ansible_pkg_mgr == "pacman"
+    - when: 
+      ansible.builtin.include_role:
+        name: petermosmans.customize-gnome
+  when: current_desktop.stdout == "GNOME"
