@@ -5,7 +5,11 @@ distribution_packages:
   - nextcloud-desktop
   - python3
   - python3-pip
-  - sway-backgrounds
   - openjdk-17-jdk
+  - pandoc
+  - texlive-latex-base
+  - texlive-fonts-recommended
+  - texlive-fonts-extra
   # --- sway ---
   - mako-notifier
+  - sway-backgrounds
