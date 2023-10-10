@@ -31,6 +31,8 @@
     - andrewrothstein.kubectl
     - gantsign.visual-studio-code
     - geerlingguy.docker
-    - geerlingguy.helm
+    - role: geerlingguy.helm
+      vars:
+        helm_version: "v3.13.0"
     - samdoran.fish
 - ansible.builtin.import_playbook: generic.yml
